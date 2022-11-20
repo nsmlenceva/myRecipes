@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
+body {
+  margin: 0px;
+  padding: 0px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cont {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+}
+
+.contfilter {
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.contfilterpart {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+.change {
+  border: none;
+}
+h2 {
+  flex-wrap: wrap;
+}
+.prodInfo {
+  padding: 20px;
+}
+
+.contrecipe {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 2%;
+  width: 240px;
+  border: solid rgb(178, 173, 173) 1px;
+}
+ul {
+  list-style: none;
+}
+.kurs {
+  font-style: italic;
+}
+.descr {
+  display: flex;
+ 
+}
+/* .mainImg {
+  background-size: 100%;
+} */
+.meal {
+  margin-left: 20px;
+}
+.mainImg {
+  height: 40vh; /* Высота блока */
+  background: url(https://img.freepik.com/free-photo/flat-lay-food-ingredients-with-vegetables_23-2148834702.jpg?w=1800&t=st=1668394364~exp=1668394964~hmac=88c990ec92f4d03e42e60fded7b188e49ebd2040f6935214469eec2ecfd9eb9f)  100% 100% no-repeat;
+  background-size: cover; /* Масштабируем фон */
+}
+h1,h2,h3,h4,p,ul,button {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+h1 {
+  font-size: 40px;
+  color: orangered;
+}
+h2 {
+  font-family: 'Secular One', sans-serif;
+}
+h3{
+  font-size: 30px;
+  font-weight: bold; 
+}
+/* .contcard {
+  padding: 2%;
+  flex-grow: 1;
+  flex-basis: 16%;
+} */
+/* 
+body {
+
+  background-color: #f6f6f6;
+
+}
+
+
+
+.cont {
+
+  display: flex;
+
+  justify-content: center;
+
+} */
+
+/* .back {
+
+  background-color: #f4eddd; 
+
+  padding: 20px;
+
+  margin-left: 20px;
+
+  margin-right: 20px;
+
+    font-family: 'Encode Sans Semi Expanded', sans-serif;
+
+
+
+}
+
+.change {
+
+  background-color: black;
+
   color: white;
+
+  padding: 10px;
+
+  border: none;
+
+  font-family: 'Encode Sans Semi Expanded', sans-serif;
+
 }
 
-.App-link {
-  color: #61dafb;
+h3, h4 {
+
+  font-family: 'Encode Sans Semi Expanded', sans-serif;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+button {
+
+  margin: 10px;
+
+} */
+
