@@ -10,8 +10,7 @@ function App() {
   const [wordSubmitted, setWordSubmitted] = useState('avocado');
   const [myRecipe, setMyRecipe] = useState([]);
   const [mySearch, setMySearch] = useState('');
-  const [myFilteredOne, setMyFilteredOne] = useState([]);
-  const [myFilteredTwo, setMyFilteredTwo] = useState([]);
+  const [myFiltered, setMyFiltered] = useState([]);
   const [myFilteredFull, setMyFilteredFull] = useState([]);
 
   useEffect(() => {
@@ -19,9 +18,7 @@ function App() {
         const responce = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${wordSubmitted}&app_id=${MY_ID}&app_key=${MY_KEY}`);
         const data = await responce.json();
         setMyRecipe(data.hits);
-        setMyFilteredOne(data.hits);
-        setMyFilteredTwo(data.hits);
-        setMyFilteredFull(data.hits);
+        setMyFiltered(data.hits);
     }
     getRecipe()}, 
     [wordSubmitted]
@@ -35,32 +32,24 @@ function App() {
     e.preventDefault();
     setWordSubmitted(mySearch);
   }
-
-
   const choseCouisin = (searchTerm) => {
    if (searchTerm !== "")  
-    {const mdlRecipe = myFilteredTwo.map (element => (
+    {const mdlRecipe = myRecipe.map (element => (
       element.recipe.cuisineType.includes(searchTerm)? element : null
     ));
     const newRecipe = mdlRecipe.filter(item => (item != null))
-
-    setMyFilteredFull(newRecipe);
-    setMyFilteredOne(newRecipe);
-  }
-   else {setMyFilteredOne(myFilteredTwo);
-        setMyFilteredFull(myFilteredTwo);}
+    setMyFiltered(newRecipe);}
+   else {setMyFiltered(myRecipe);}
   }
 
   const choseMeal = (searchTerm) => {
     if (searchTerm !== "")  
-     {const mdlRecipe = myFilteredOne.map (element => (
+     {const mdlRecipe = myRecipe.map (element => (
        element.recipe.mealType.includes(searchTerm)? element : null
      ));
      const newRecipe = mdlRecipe.filter(item => (item != null))
-     setMyFilteredFull(newRecipe);
-     setMyFilteredTwo(newRecipe);}
-    else {setMyFilteredTwo(myFilteredOne);
-          setMyFilteredFull(myFilteredOne);}
+     setMyFiltered(newRecipe);}
+    else {setMyFiltered(myRecipe);}
    }
 
 
@@ -77,10 +66,10 @@ function App() {
         </form>
       <div className='cont contfilter '>
         <ButtonCuisin filterCuisin = {choseCouisin}/>
-        <ButtonMeal filterMeal = {choseMeal}/>
+        <ButtonMeal filterMeal={choseMeal}/>
       </div>
       <div className='cont'> 
-        {myFilteredFull.map((element, index) => (
+        {myFiltered.map((element, index) => (
           <ShowRecipe key = {index} anyRecipe = {element}/>
         ))}
       </div>
