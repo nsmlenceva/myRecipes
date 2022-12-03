@@ -1,8 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import ShowRecipe from './  ShowRecipe';
+import ShowRecipe from './ShowRecipe';
 import ButtonCuisin from './ButtonCuisin';
-import ButtonMeal from './ButtonMeal';
 
 function App() {
   const MY_ID ="e34b6443";
@@ -10,8 +9,6 @@ function App() {
   const [wordSubmitted, setWordSubmitted] = useState('avocado');
   const [myRecipe, setMyRecipe] = useState([]);
   const [mySearch, setMySearch] = useState('');
-  const [myFilteredOne, setMyFilteredOne] = useState([]);
-  const [myFilteredTwo, setMyFilteredTwo] = useState([]);
   const [myFilteredFull, setMyFilteredFull] = useState([]);
 
   useEffect(() => {
@@ -19,8 +16,6 @@ function App() {
         const responce = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${wordSubmitted}&app_id=${MY_ID}&app_key=${MY_KEY}`);
         const data = await responce.json();
         setMyRecipe(data.hits);
-        setMyFilteredOne(data.hits);
-        setMyFilteredTwo(data.hits);
         setMyFilteredFull(data.hits);
     }
     getRecipe()}, 
@@ -36,33 +31,16 @@ function App() {
     setWordSubmitted(mySearch);
   }
 
-
   const choseCouisin = (searchTerm) => {
-   if (searchTerm !== "")  
-    {const mdlRecipe = myFilteredTwo.map (element => (
-      element.recipe.cuisineType.includes(searchTerm)? element : null
-    ));
-    const newRecipe = mdlRecipe.filter(item => (item != null))
-
-    setMyFilteredFull(newRecipe);
-    setMyFilteredOne(newRecipe);
-  }
-   else {setMyFilteredOne(myFilteredTwo);
-        setMyFilteredFull(myFilteredTwo);}
-  }
-
-  const choseMeal = (searchTerm) => {
     if (searchTerm !== "")  
-     {const mdlRecipe = myFilteredOne.map (element => (
-       element.recipe.mealType.includes(searchTerm)? element : null
-     ));
-     const newRecipe = mdlRecipe.filter(item => (item != null))
-     setMyFilteredFull(newRecipe);
-     setMyFilteredTwo(newRecipe);}
-    else {setMyFilteredTwo(myFilteredOne);
-          setMyFilteredFull(myFilteredOne);}
-   }
-
+      {const mdlRecipe = myRecipe.map (element => (
+      element.recipe.cuisineType.includes(searchTerm)? element : null
+      ));
+      const newRecipe = mdlRecipe.filter(item => (item != null))
+      setMyFilteredFull(newRecipe);
+      }
+    else setMyFilteredFull(myRecipe);
+  }
 
   return (
     <div>
@@ -75,9 +53,8 @@ function App() {
           <input onChange={myRecipeSearch} vaue = {mySearch}></input>
           <button>find</button>
         </form>
-      <div className='cont contfilter '>
+      <div className='cont'>
         <ButtonCuisin filterCuisin = {choseCouisin}/>
-        <ButtonMeal filterMeal = {choseMeal}/>
       </div>
       <div className='cont'> 
         {myFilteredFull.map((element, index) => (

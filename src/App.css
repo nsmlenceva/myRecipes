@@ -7,23 +7,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-
-.contfilter {
-  justify-content: space-around;
-
-  display: flex;
-
-
-}
-.contfilterpart {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 50%;
-
-
-  
-}
 .change {
   border: none;
 }
@@ -33,7 +16,6 @@ h2 {
 .prodInfo {
   padding: 20px;
 }
-
 .contrecipe {
   display: flex;
   flex-wrap: wrap;
@@ -49,12 +31,8 @@ ul {
   font-style: italic;
 }
 .descr {
-  display: flex;
- 
+  display: flex; 
 }
-/* .mainImg {
-  background-size: 100%;
-} */
 .meal {
   margin-left: 20px;
 }
@@ -77,14 +55,11 @@ h3{
   font-size: 30px;
   font-weight: bold; 
 }
-.form_radio_btn, .form_radio_btn_meal {
+.form_radio_btn {
 	display: inline-block;
 	margin-right: 3px;
 }
 .form_radio_btn input[type=radio] {
-	display: none;
-}
-.form_radio_btn_meal input[type=radio] {
 	display: none;
 }
 .form_radio_btn label {
@@ -96,88 +71,11 @@ h3{
 	border-radius: 6px;
 	user-select: none;
 }
-.form_radio_btn_meal label {
-	display: inline-block;
-	cursor: pointer;
-	padding: 0px 15px;
-	line-height: 34px;
-	border: 1px solid #999;
-	border-radius: 6px;
-	user-select: none;
-}
- 
 /* Checked */
 .form_radio_btn input[type=radio]:checked + label {
 	background: rgb(245, 101, 49);
 }
- 
-/* Checked */
-.form_radio_btn_meal input[type=radio]:checked + label {
-	background: rgb(159, 196, 151);
-}
-
-
-/* .contcard {
-  padding: 2%;
-  flex-grow: 1;
-  flex-basis: 16%;
-} */
-/* 
-body {
-
-  background-color: #f6f6f6;
-
-}
-
-
-
 .cont {
-
   display: flex;
-
   justify-content: center;
-
-} */
-
-/* .back {
-
-  background-color: #f4eddd; 
-
-  padding: 20px;
-
-  margin-left: 20px;
-
-  margin-right: 20px;
-
-    font-family: 'Encode Sans Semi Expanded', sans-serif;
-
-
-
-}
-
-.change {
-
-  background-color: black;
-
-  color: white;
-
-  padding: 10px;
-
-  border: none;
-
-  font-family: 'Encode Sans Semi Expanded', sans-serif;
-
-}
-
-h3, h4 {
-
-  font-family: 'Encode Sans Semi Expanded', sans-serif;
-
-}
-
-button {
-
-  margin: 10px;
-
-} */
-
+} 
